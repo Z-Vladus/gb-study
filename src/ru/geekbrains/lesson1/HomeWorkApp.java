@@ -31,7 +31,7 @@ public class HomeWorkApp {
     public static void printColor() {
         System.out.println("printColor");
         int value;
-        value = (int)(Math.random()*10)-150;
+        value = (int)(Math.random()*300)-150;
         System.out.println("value="+value);
         if (value<=0) {
             System.out.println("Красный");
