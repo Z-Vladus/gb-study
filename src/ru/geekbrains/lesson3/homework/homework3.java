@@ -114,8 +114,31 @@ public class homework3 {
         }
         System.out.println("random generated arr7 :");*/
         System.out.println("arr7 = "+Arrays.toString(arr7));
-
         System.out.println("method7 returned "+method7(arr7));
+
+        //8. *** Написать метод, которому на вход подается одномерный массив
+        //  и число n (может быть положительным, или отрицательным),
+        //  при этом метод должен сместить все элементы массива на n позиций.
+        //  Элементы смещаются циклично.
+        //  Для усложнения задачи нельзя пользоваться вспомогательными массивами.
+        //  Примеры: [ 1, 2, 3 ] при n = 1 (на один вправо) -> [ 3, 1, 2 ];
+        //  [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
+        //  При каком n в какую сторону сдвиг можете выбирать сами.
+        System.out.println("8th***  task");
+        int[] arr8 = new int[10];
+        for (int i = 0; i < arr8.length; i++) {
+            arr8[i] = (int) (Math.random()*50);
+        }
+        System.out.println("generated arr8:");
+        String str = Arrays.toString(arr8);
+        System.out.println(str);
+        System.out.println("Starting method8...");
+        method8(arr8,2);
+        System.out.println("modified arr8:");
+        System.out.println(Arrays.toString(arr8));
+        System.out.println(str);
+        System.out.println(" ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^");
+        System.out.println("^ initial array for comparison ^");
 
     }
 
@@ -148,6 +171,31 @@ public class homework3 {
         }
         // если места не нашлось, возврат ложь
         return false;
+    }
+    //  Примеры: [ 1, 2, 3 ] при n = 1 (на один вправо) -> [ 3, 1, 2 ];
+    //  [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
+    public static void method8(int[] arrm8, int n) {
+        // сначала сдвиг вправо (n>0)
+        int buf;
+        for (int i = 0; i < arrm8.length; i++) {
+            buf=arrm8[i];
+            System.out.println("i="+i);
+            if ((i+n+1)<arrm8.length) {
+                System.out.println("((i+n+1)<arrm8.length) = true...");
+                System.out.println("Operating with arrm8[i]="+arrm8[i]+" arrm8[i+n]=arrm8["+i+"+"+n+"]="+arrm8[i+n]);
+                arrm8[i]=arrm8[i+n];
+                arrm8[i+n]=buf;
+
+            } else {
+                System.out.println("((i+n+1)<arrm8.length) = false...");
+                System.out.println("Operating with arrm8[i]="+arrm8[i]+" arrm8[i-n]=arrm8["+i+"-"+n+"]="+arrm8[i-n]);
+                arrm8[i]=arrm8[i-n];
+                arrm8[i-n]=buf;
+            }
+            System.out.println("after iteration "+i+" array = "+Arrays.toString(arrm8));
+        }
+        System.out.println("===== method8 finished =====");
+        //return arrm8;
     }
 }
 
