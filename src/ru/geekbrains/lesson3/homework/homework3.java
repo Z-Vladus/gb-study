@@ -125,10 +125,12 @@ public class homework3 {
         //  [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
         //  При каком n в какую сторону сдвиг можете выбирать сами.
         System.out.println("8th***  task");
-        int[] arr8 = new int[10];
-        for (int i = 0; i < arr8.length; i++) {
-            arr8[i] = (int) (Math.random()*50);
-        }
+        //int[] arr8 = new int[10];
+        //for (int i = 0; i < arr8.length; i++) {
+        //    arr8[i] = (int) (Math.random()*50);
+        //}
+        int[] arr8 = new int[] {21, 8, 40, 5, 27, 8, 1, 16, 7, 22};
+
         System.out.println("generated arr8:");
         String str = Arrays.toString(arr8);
         System.out.println(str);
@@ -176,8 +178,27 @@ public class homework3 {
     //  [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
     public static void method8(int[] arrm8, int n) {
         // сначала сдвиг вправо (n>0)
-        int buf;
-        for (int i = 0; i < arrm8.length; i++) {
+        int buf1=0,buf2=0;
+        // делаем по харду, без второго массива. 
+        // у нас может быть два случая.
+        // 1. длина масива нацело делится на кол-во шагов. тогда при последовательном перемещении элементов цикл придёт в точку начала до перемещения всех элементов.
+        // 2. длина масива нацело не делится на кол-во шагов. тогда при последовательном перемещении элементов цикл не придёт в точку начала, алгоритм переберёт все элементы.
+        int ost= arrm8.length % n;
+        int i=0;
+        do {
+
+            buf1=arrm8[i];
+            buf2=arrm8[i+n];
+            arrm8[i+n]=buf1;
+            i++;
+
+            
+        } while (i!=100); // !=0
+
+        
+        // этот ко не годится... наверно...
+       /*
+        for (int i = n; i < arrm8.length; i++) {
             buf=arrm8[i];
             System.out.println("i="+i);
             if ((i+n+1)<arrm8.length) {
@@ -195,6 +216,8 @@ public class homework3 {
             System.out.println("after iteration "+i+" array = "+Arrays.toString(arrm8));
         }
         System.out.println("===== method8 finished =====");
+
+        */
         //return arrm8;
     }
 }
