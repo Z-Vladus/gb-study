@@ -189,6 +189,8 @@ public class homework3 {
                 arrm8[j]=buf1;
                 System.out.println("i="+i+" j="+j);
                 System.out.println(Arrays.toString(arrm8));
+                //123
+
             }
 
         }
