@@ -65,38 +65,38 @@ public class homework3 {
         // одномерный массив типа int длиной len, каждая ячейка которого равна initialValue;
         System.out.println("5th task");
         int[] arr5;
-        int len=(int) (Math.random()*7+3);
-        int initialValue = (int) (Math.random()*10);
-        arr5 = method5(len,initialValue);
-        System.out.println("len="+len+" initialValue="+initialValue);
+        int len = (int) (Math.random() * 7 + 3);
+        int initialValue = (int) (Math.random() * 10);
+        arr5 = method5(len, initialValue);
+        System.out.println("len=" + len + " initialValue=" + initialValue);
         System.out.println(Arrays.toString(arr5));
         System.out.println("===============================");
 
         //6. * Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
         System.out.println("6th* task");
-        int max,min;
+        int max, min;
 
         int[] arr6 = new int[15];
         for (int i = 0; i < arr6.length; i++) {
-            arr6[i] = (int) (Math.random()*50);
+            arr6[i] = (int) (Math.random() * 50);
         }
         System.out.println("generated arr6:");
         System.out.println(Arrays.toString(arr6));
-        max=arr6[0];
-        min=arr6[0];
+        max = arr6[0];
+        min = arr6[0];
         for (int i = 0; i < arr6.length; i++) {
-            System.out.println("arr6["+i+"]="+arr6[i]);
-            if (max<arr6[i]) {
-                max=arr6[i];
-                System.out.println("new max="+max);
+            System.out.println("arr6[" + i + "]=" + arr6[i]);
+            if (max < arr6[i]) {
+                max = arr6[i];
+                System.out.println("new max=" + max);
             }
-            if (min>arr6[i]) {
-                min=arr6[i];
-                System.out.println("new min="+min);
+            if (min > arr6[i]) {
+                min = arr6[i];
+                System.out.println("new min=" + min);
             }
 
         }
-        System.out.println("Result max="+max+" min="+min);
+        System.out.println("Result max=" + max + " min=" + min);
         System.out.println("===============================");
         //7. ** Написать метод, в который передается не пустой одномерный целочисленный массив,
         // метод должен вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны.
@@ -113,8 +113,9 @@ public class homework3 {
             arr7[i] = (int) (Math.random()*10);
         }
         System.out.println("random generated arr7 :");*/
-        System.out.println("arr7 = "+Arrays.toString(arr7));
-        System.out.println("method7 returned "+method7(arr7));
+        System.out.println("arr7 = " + Arrays.toString(arr7));
+        System.out.println("method7 returned " + method7(arr7));
+        System.out.println("===============================");
 
         //8. *** Написать метод, которому на вход подается одномерный массив
         //  и число n (может быть положительным, или отрицательным),
@@ -125,23 +126,29 @@ public class homework3 {
         //  [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
         //  При каком n в какую сторону сдвиг можете выбирать сами.
         System.out.println("8th***  task");
-        //int[] arr8 = new int[10];
-        //for (int i = 0; i < arr8.length; i++) {
-        //    arr8[i] = (int) (Math.random()*50);
-        //}
-        int[] arr8 = new int[] {21, 8, 40, 5, 27, 8, 1, 16, 7, 22};
+        int[] arr8 = new int[10];
+        int[] arr8_init = new int[10];
+        for (int i = 0; i < arr8.length; i++) {
+            arr8[i] = (int) (Math.random()*50);
+            arr8_init[i]=arr8[i];
+        }
 
-        System.out.println("generated arr8:");
-        String str = Arrays.toString(arr8);
-        System.out.println(str);
-        System.out.println("Starting method8...");
-        method8(arr8,2);
-        System.out.println("modified arr8:");
+        System.out.println("calling method8(arr8, -3); result=");
+        method8(arr8, -3);
         System.out.println(Arrays.toString(arr8));
-        System.out.println(str);
+        System.out.println(Arrays.toString(arr8_init));
         System.out.println(" ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^");
         System.out.println("^ initial array for comparison ^");
 
+        System.out.println("calling method8(arr8, 2); result=");
+        method8(arr8, 2);
+        System.out.println(Arrays.toString(arr8));
+        System.out.println(Arrays.toString(arr8_init));
+        System.out.println(" ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^");
+        System.out.println("^ initial array for comparison ^");
+
+        System.out.println("calling method8(arr8, 0); result=");
+        method8(arr8, 0);
     }
 
     public static int[] method5(int len, int initialValue) {
@@ -152,84 +159,83 @@ public class homework3 {
 
 
     public static boolean method7(int[] arrm7) {
-        int left_sum=arrm7[0],right_sum=arrm7[arrm7.length-1];
-        System.out.println(" Before loops: left_sum="+left_sum+" right_sum="+right_sum);
+        int left_sum = arrm7[0], right_sum = arrm7[arrm7.length - 1];
+        System.out.println(" Before loops: left_sum=" + left_sum + " right_sum=" + right_sum);
 
-        for (int i = 0; i < arrm7.length-1; i++) {
+        for (int i = 0; i < arrm7.length - 1; i++) {
             //вычисляем левую часть
-            left_sum=0;
-            right_sum=0;
+            left_sum = 0;
+            right_sum = 0;
             for (int j = 0; j <= i; j++) {
-                left_sum+=arrm7[j];
-                System.out.println("debug: i="+i+" j="+j+" left_sum="+left_sum);
+                left_sum += arrm7[j];
+                System.out.println("debug: i=" + i + " j=" + j + " left_sum=" + left_sum);
             }
             //вычисляем правую часть
-            for (int j = i+1; j < arrm7.length; j++) {
-                right_sum+=arrm7[j];
-                System.out.println("debug: i="+i+" j="+j+" right_sum="+right_sum);
+            for (int j = i + 1; j < arrm7.length; j++) {
+                right_sum += arrm7[j];
+                System.out.println("debug: i=" + i + " j=" + j + " right_sum=" + right_sum);
             }
-            System.out.println("iteration "+i+" result: left_sum="+left_sum+" right_sum="+right_sum);
-            if (left_sum==right_sum) return true;
+            System.out.println("iteration " + i + " result: left_sum=" + left_sum + " right_sum=" + right_sum);
+            if (left_sum == right_sum) return true;
         }
         // если места не нашлось, возврат ложь
         return false;
     }
+
+
     //  Примеры: [ 1, 2, 3 ] при n = 1 (на один вправо) -> [ 3, 1, 2 ];
     //  [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
     public static void method8(int[] arrm8, int n) {
-        int buf1=0,buf2=0,ind=0;
-        // попробуем по-новому. Просто циклический сдвиг всего массива, с одним буфером
-        // сначала сдвиг вправо (n>0)
-        for (int i = 0; i < n; i++) {
-            //иниц. буфер и заодно перемещаем последний эл-т в 0-й
-            buf1=arrm8[0];
-            arrm8[0]=arrm8[arrm8.length-1];
-            for (int j = 1; j < arrm8.length-1; j++) {
-                arrm8[j+1]=buf2;
-                arrm8[j]=buf1;
-                System.out.println("i="+i+" j="+j);
+        int buf1;
+        // циклический сдвиг всего массива а-ля пятняшки, с одним буфером.
+        // если сдвиг вправо (n>0)
+        if (n > 0) {
+            for (int i = 0; i < n; i++) {
+                //перемещаем последний эл-т в в буфер
+                buf1 = arrm8[arrm8.length - 1];
+                /*
+                System.out.println("Array before loop:");
                 System.out.println(Arrays.toString(arrm8));
-                //123
-
+                System.out.println("Loop starts:");
+                */
+                for (int j = arrm8.length - 1; j > 0; j--) {
+                    //System.out.println("i=" + i + " j=" + j + " buf1=" + buf1);
+                    arrm8[j] = arrm8[j - 1];
+                    /*
+                    System.out.println("j-loop iteration result:");
+                    System.out.println(Arrays.toString(arrm8));
+                    */
+                }
+                //из буфера вставляем в 0й элемент
+                arrm8[0] = buf1;
             }
+        }
+        // если сдвиг влево (n<0)
+        if (n < 0) {
+            for (int i = 0; i < n * -1; i++) {
+                //перемещаем 0й эл-т в в буфер
+                buf1 = arrm8[0];
+                /*
+                System.out.println("Array before loop:");
+                System.out.println(Arrays.toString(arrm8));
+                System.out.println("Loop starts:");
+                */
 
+                //меняем 1-й элемент на 2-й, 2-й на 3-й и т.д.
+                for (int j = 0; j < arrm8.length - 1; j++) {
+                    //System.out.println("i=" + i + " j=" + j + " buf1=" + buf1);
+                    arrm8[j] = arrm8[j + 1];
+                    /*System.out.println("j-loop iteration result:");
+                    System.out.println(Arrays.toString(arrm8));*/
+                }
+                //из буфера вставляем в последний элемент
+                arrm8[arrm8.length - 1] = buf1;
+            }
+        }
+        if (n == 0) {
+            System.out.println("0 - недопустимое значение, вторым аргументом нужно целое число");
         }
 
-
-        // старая идея, наверно переусложнена - лежит на яндекс.диске.
-
-        // сначала сдвиг вправо (n>0)
-
-        // делаем по харду, без второго массива. 
-        // у нас может быть два случая.
-        // 1. длина масива нацело делится на кол-во шагов. тогда при последовательном перемещении элементов цикл придёт в точку начала до перемещения всех элементов.
-        // 2. длина масива нацело не делится на кол-во шагов. тогда при последовательном перемещении элементов цикл не придёт в точку начала, алгоритм переберёт все элементы.
-
-
-        
-        // этот ко не годится... наверно...
-       /*
-        for (int i = n; i < arrm8.length; i++) {
-            buf=arrm8[i];
-            System.out.println("i="+i);
-            if ((i+n+1)<arrm8.length) {
-                System.out.println("((i+n+1)<arrm8.length) = true...");
-                System.out.println("Operating with arrm8[i]="+arrm8[i]+" arrm8[i+n]=arrm8["+i+"+"+n+"]="+arrm8[i+n]);
-                arrm8[i]=arrm8[i+n];
-                arrm8[i+n]=buf;
-
-            } else {
-                System.out.println("((i+n+1)<arrm8.length) = false...");
-                System.out.println("Operating with arrm8[i]="+arrm8[i]+" arrm8[i-n]=arrm8["+i+"-"+n+"]="+arrm8[i-n]);
-                arrm8[i]=arrm8[i-n];
-                arrm8[i-n]=buf;
-            }
-            System.out.println("after iteration "+i+" array = "+Arrays.toString(arrm8));
-        }
-        System.out.println("===== method8 finished =====");
-
-        */
-        //return arrm8;
     }
 }
 
