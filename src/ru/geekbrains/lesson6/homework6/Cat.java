@@ -23,5 +23,6 @@ public class Cat extends Mammal {
         addMammalCounter();
         String[] str={"Блик", "Изумруд", "Николас", "Персик", "Томас", "Ураган", "Чижик", "Шкипер"};
         this.name = str[(int)(Math.random()*8)];
+
     }
 }

@@ -33,6 +33,7 @@ public class Homework6App {
             mammals[i].swim(-1);
             mammals[i].swim(5);
             mammals[i].swim(50);
+
         }
     }
 

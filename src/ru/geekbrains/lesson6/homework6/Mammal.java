@@ -26,7 +26,6 @@ public class Mammal {
         }
         if (this.getClass().getSimpleName().equals("Cat")) {
             System.out.println("Cats do not swim");
-
         }
     }
 

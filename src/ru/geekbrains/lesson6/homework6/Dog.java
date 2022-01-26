@@ -22,6 +22,7 @@ public class Dog extends Mammal {
         this.name = str[((int)(Math.random()*6))];
         dogCounter++;
         addMammalCounter();
+
     }
 
 
