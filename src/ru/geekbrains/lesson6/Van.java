@@ -1,16 +1,14 @@
 package ru.geekbrains.lesson6;
 
 public class Van extends Car {
-    String model;
-    int year;
     int seats;
 
     public Van(String model, int year, int seats) {
-        this.model = model;
-        this.year = year;
+
+        super(model, year);
+        System.out.println("This is a Van constructor");
         this.seats = seats;
     }
-
 
     public int getSeats() {
         return seats;
