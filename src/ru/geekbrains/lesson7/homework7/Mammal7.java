@@ -1,14 +1,30 @@
 package ru.geekbrains.lesson7.homework7;
 
-public class Mammal {
-    static int mommalCounter=0;
+public class Mammal7 {
+    static int mommalCounter = 0;
+
+    //голод, от 0 до 100.
+    int hunger;
 
     public static int getMammalCounter() {
         return mommalCounter;
     }
 
     public static void addMammalCounter() {
-        Mammal.mommalCounter++;
+        Mammal7.mommalCounter++;
+    }
+
+    public boolean isHungry() {
+        if (hunger < 100) return true;
+        else return false;
+    }
+
+    public int getHunger() {
+        return hunger;
+    }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
     }
 
     public void swim(int distance) {
