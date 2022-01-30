@@ -7,10 +7,29 @@ public class Bowl {
     public Bowl(int vol) {
         this.vol = vol;
     }
+
     // сколько сейчас в тарелке?
+
     public int getAmount() {
         return amount;
     }
+
+    public void getGrAmount() {
+
+        System.out.print("[");
+        for (int i = 0; i < 10; i++) {
+            double k;
+            k= ( (double) this.amount/this.vol)*10;
+            if ( ((int)(k))>i ) {
+                System.out.print("*");
+
+            } else {
+                System.out.print(" ");
+            }
+
+        }
+        System.out.print("]");
+    };
 
     //просто кладём корм до определённого уровня
     public void setAmount(int amount) {
