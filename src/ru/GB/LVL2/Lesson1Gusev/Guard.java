@@ -1,4 +1,4 @@
-package ru.GB.LVL2.Lesson2Gusev;
+package ru.GB.LVL2.Lesson1Gusev;
 
 public class Guard {
 
