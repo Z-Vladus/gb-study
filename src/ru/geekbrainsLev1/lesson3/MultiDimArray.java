@@ -1,6 +1,4 @@
-package ru.geekbrains.lesson3;
-
-import java.util.Arrays;
+package ru.geekbrainsLev1.lesson3;
 
 public class MultiDimArray {
     public static void main(String[] args) {
