@@ -38,7 +38,7 @@ public class Training {
 
         // инициализируем стены
         for (int i = 0; i < walls.length ; i++) {
-            walls[i] = new Wall();
+            walls[i] = new Wall(); //
             walls[i].setHeight( (int)(Math.random()*3)+1);
             System.out.println("Стена "+i+" имеет высоту "+walls[i].getHeight());
         }
