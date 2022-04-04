@@ -22,7 +22,7 @@ public class Training {
             cats[i]=new Cat();
             cats[i].setName("Кот"+i);
             cats[i].setJumpAbility(1);
-            cats[i].setRunAbility(70);
+            cats[i].setRunAbility(71);
 
 
             robots[i]=new Robot();
