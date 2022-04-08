@@ -2,12 +2,12 @@ package ru.geekbrainsLev2.Lesson5.homework;
 
 public class App {
     public static void main(String[] args) throws InterruptedException {
-        SimpleCalc();
+        simplecalc();
         threadedCalc();
 
     }
 
-    public static void SimpleCalc() {
+    public static void simplecalc() {
         int size = 10_000_000;
         float[] arr = new float[size];
         for (int i = 0; i < arr.length; i++) {
@@ -23,13 +23,13 @@ public class App {
         }
         System.out.print("]");
         System.out.println();
-        System.out.println("SimpleCalc method work time: " + (System.currentTimeMillis() -
+        System.out.println("simpleCalc method work time: " + (System.currentTimeMillis() -
                 startTime) + " ms.");
 
     }
 
     public static void threadedCalc() throws InterruptedException {
-        int size = 100_000_000;
+        int size = 10_000_000;
         float[] arr = new float[size];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 1.0f;
