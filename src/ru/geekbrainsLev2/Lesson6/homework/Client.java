@@ -11,20 +11,36 @@ public class Client {
     private DataOutputStream os;
     private DataInputStream is;
 
+    private boolean msgRcvd=false;
+
+    public boolean isMsgRcvd() {
+        return msgRcvd;
+    }
+
+    public void setMsgRcvd(boolean msgRcvd) {
+        this.msgRcvd = msgRcvd;
+    }
+
     public static void main(String[] args) {
         Client c = new Client();
         c.start();
     }
 
     private void start() {
+        setMsgRcvd(false);
         try {
             openConnection();
             Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter text message for server: ");
             while (true){
-                System.out.print("Enter text message for server: ");
+                if (isMsgRcvd()) {
+                    setMsgRcvd(false);
+                    System.out.print("Enter text message for server: ");
+                }
                 String msg = scanner.nextLine(); // blocking method
                 os.writeUTF(msg);  // sending messages
-                if("/end".equalsIgnoreCase(msg)){break;};
+                System.out.print("Enter text message for server: ");
+                if("/end".equalsIgnoreCase(msg)){break;}
             }
 
         } catch (Exception e) {
@@ -74,10 +90,10 @@ public class Client {
                     while (true){
                         // ждём сообщения от сервера
                         final String msg = is.readUTF(); // blocking
-                        if("/end".equalsIgnoreCase(msg)){break;};
+                        if("/end".equalsIgnoreCase(msg)){break;}
                         System.out.println();
                         System.out.println("Сообщение от сервера: "+msg);
-                        System.out.print("Enter text message for client: ");
+                        System.out.print("Enter text message for server: ");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

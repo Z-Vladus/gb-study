@@ -63,6 +63,7 @@ public class Server {
                 }
                 String msg = scanner.nextLine(); // blocking method
                 os.writeUTF(msg);  // sending messages
+                System.out.print("Enter text message for client: ");
                 if("/end".equalsIgnoreCase(msg)){break;};
             }
 
