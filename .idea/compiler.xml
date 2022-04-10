@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Lesson1" />
         <module name="gb-study" />
+        <module name="Project_v1" />
       </profile>
     </annotationProcessing>
   </component>
