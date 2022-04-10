@@ -5,33 +5,67 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Server {
 
-    public static void main(String[] args) {
+    private boolean msgRcvd=false;
+
+    public boolean isMsgRcvd() {
+        return msgRcvd;
+    }
+
+    public void setMsgRcvd(boolean msgRcvd) {
+        this.msgRcvd = msgRcvd;
+    }
+
+    public void start(){
+        this.setMsgRcvd(false);
+
         Socket socket = null;
         ServerSocket serverSocket = null;
+        boolean msgReceived=false;
         try {
             serverSocket = new ServerSocket  (8189);
-            System.out.println("Сервер запущен");
+            System.out.println("server is listening at "+serverSocket.getLocalSocketAddress());
 
             socket = serverSocket.accept(); // blocking
-            System.out.println("клиент подключился");
+            System.out.println("client connected");
 
-            //  получение сообщений
             DataInputStream is = new DataInputStream(socket.getInputStream());
-            // отсылка сообщений
             DataOutputStream os = new DataOutputStream(socket.getOutputStream());
 
-            while (true) {
-                String msg = is.readUTF(); // blocking
-                // ядовитая таблетка
-                if ("/end".equalsIgnoreCase(msg)) {
-                    os.writeUTF("/end");
-                    break;
+            Thread thrReceiver = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true){
+                        try {
+                            String msg=is.readUTF();
+                            if("/end".equalsIgnoreCase(msg)){break;};
+                            System.out.println();
+                            System.out.println("Msg from client = : "+msg);
+                            System.out.print("Enter text message for client: ");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
                 }
-                os.writeUTF("Echo: " + msg);
+            });
+            System.out.println("Server is waiting for incoming messages");
+            thrReceiver.start();
+            System.out.print("Enter text message for client: ");
+            Scanner scanner = new Scanner(System.in);
+            while (true){
+                if (this.isMsgRcvd()) {
+                    setMsgRcvd(false);
+                    System.out.print("Enter text message for client: ");
+                }
+                String msg = scanner.nextLine(); // blocking method
+                os.writeUTF(msg);  // sending messages
+                if("/end".equalsIgnoreCase(msg)){break;};
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,5 +80,12 @@ public class Server {
         }
         System.out.println("Сервер остановлен");
     }
+
+    public static void main(String[] args) {
+        Server s = new Server();
+        s.start();
+    }
+
+
 
 }

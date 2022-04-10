@@ -21,6 +21,7 @@ public class Client {
             openConnection();
             Scanner scanner = new Scanner(System.in);
             while (true){
+                System.out.print("Enter text message for server: ");
                 String msg = scanner.nextLine(); // blocking method
                 os.writeUTF(msg);  // sending messages
                 if("/end".equalsIgnoreCase(msg)){break;};
@@ -74,7 +75,9 @@ public class Client {
                         // ждём сообщения от сервера
                         final String msg = is.readUTF(); // blocking
                         if("/end".equalsIgnoreCase(msg)){break;};
+                        System.out.println();
                         System.out.println("Сообщение от сервера: "+msg);
+                        System.out.print("Enter text message for client: ");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
