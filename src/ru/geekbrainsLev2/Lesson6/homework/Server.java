@@ -1,4 +1,4 @@
-package ru.geekbrainsLev2.Lesson6;
+package ru.geekbrainsLev2.Lesson6.homework;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Echoserver {
+public class Server {
+
     public static void main(String[] args) {
         Socket socket = null;
         ServerSocket serverSocket = null;
@@ -45,4 +46,5 @@ public class Echoserver {
         }
         System.out.println("Сервер остановлен");
     }
+
 }

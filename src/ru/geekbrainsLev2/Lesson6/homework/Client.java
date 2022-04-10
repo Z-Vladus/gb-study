@@ -1,4 +1,4 @@
-package ru.geekbrainsLev2.Lesson6;
+package ru.geekbrainsLev2.Lesson6.homework;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,15 +6,14 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class EchoClient {
-    private Socket socket;
+public class Client {
+    private Socket s;
     private DataOutputStream os;
     private DataInputStream is;
 
-
     public static void main(String[] args) {
-        EchoClient client = new EchoClient();
-        client.start();
+        Client c = new Client();
+        c.start();
     }
 
     private void start() {
@@ -36,9 +35,9 @@ public class EchoClient {
 
     private void closeConnection() {
 
-        if (socket!=null) {
+        if (s!=null) {
             try {
-                socket.close();
+                s.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -63,9 +62,9 @@ public class EchoClient {
 
     // подкл. к серверу
     private void openConnection() throws IOException {
-        socket = new Socket("127.0.0.1",8189);
-        is = new DataInputStream(socket.getInputStream());
-        os = new DataOutputStream(socket.getOutputStream());
+        s = new Socket("127.0.0.1",8189);
+        is = new DataInputStream(s.getInputStream());
+        os = new DataOutputStream(s.getOutputStream());
 
         final Thread thread = new Thread(new Runnable() {
             @Override
