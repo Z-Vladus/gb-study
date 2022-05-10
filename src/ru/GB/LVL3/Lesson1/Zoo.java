@@ -3,6 +3,7 @@ package ru.GB.LVL3.Lesson1;
 import java.util.ArrayList;
 import java.util.List;
 
+//public class Zoo<T extends Animal> {
 public class Zoo<T> {
     private List<T> animals;
 
