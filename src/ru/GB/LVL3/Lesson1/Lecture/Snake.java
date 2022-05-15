@@ -1,4 +1,4 @@
-package ru.GB.LVL3.Lesson1;
+package ru.GB.LVL3.Lesson1.Lecture;
 
 public class Snake extends Animal{
     public Snake(String name, int age) {

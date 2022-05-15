@@ -1,4 +1,4 @@
-package ru.GB.LVL3.Lesson1;
+package ru.GB.LVL3.Lesson1.Lecture;
 
 public class CatLVL3 implements Comparable<CatLVL3>{
     private double weight;

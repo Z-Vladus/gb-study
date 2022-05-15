@@ -1,4 +1,4 @@
-package ru.GB.LVL3.Lesson1;
+package ru.GB.LVL3.Lesson1.Lecture;
 
 import java.util.ArrayList;
 import java.util.List;

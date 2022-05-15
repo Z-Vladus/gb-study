@@ -1,3 +1,5 @@
+package ru.GB.LVL3.Lesson1.Homework;
+
 // Написать метод, который меняет два элемента массива местами (массив может быть любого
 // ссылочного типа)
 public class Task1Objects<T extends Object> {

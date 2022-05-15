@@ -1,4 +1,4 @@
-package ru.GB.LVL3.Lesson1;
+package ru.GB.LVL3.Lesson1.Lecture;
 // Lesson 3-1 GENERICS
 
 import java.util.ArrayList;

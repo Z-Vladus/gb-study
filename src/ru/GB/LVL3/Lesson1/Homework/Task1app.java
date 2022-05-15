@@ -1,3 +1,5 @@
+package ru.GB.LVL3.Lesson1.Homework;
+
 public class Task1app {
 
     public static void main(String[] args) {
@@ -14,6 +16,7 @@ public class Task1app {
         objects.swapObjects(1,2);
 
         objects.printObjectsArray();
+
 
     }
 
